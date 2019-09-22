@@ -1,0 +1,46 @@
+.loader{
+	background: #282c34;
+	width: 100vw;
+	overflow: hidden;
+	max-height: 36px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 9999;
+	transition-property: max-height, opacity, visibility;
+  	transition-delay: 0s, 2s, 2s;
+  	transition-duration: 1s;
+	height: 100vh;
+	opacity: 1;
+	visibility: visible;
+}
+
+.loader svg{
+	position: absolute;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+	max-height: 100%;
+	transition: all 1s;  
+}
+
+.loader.active{
+	max-height: 100vh;
+}
+
+.loader.loaded svg{
+	transition-property: left, transform;
+  	transition-delay: 1s, 1s;
+	transform: translate(-82px,-50%);
+	left: 0%;
+}
+
+.loader.loaded {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.svg-loader{
+	width: 200px;
+	height: 200px;
+}

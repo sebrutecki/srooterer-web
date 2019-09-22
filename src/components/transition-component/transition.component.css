@@ -1,0 +1,25 @@
+.transition .shape-overlays {
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999
+}
+
+.transition .shape-overlays__path:nth-of-type(3) {
+	fill: #F1FAEE;
+}
+
+.transition .shape-overlays__path:nth-of-type(2) {
+	fill: #E63946;
+}
+
+.transition .shape-overlays__path:nth-of-type(4) {
+	fill: #457B9D;
+}
+
+.transition .shape-overlays__path:nth-of-type(1) {
+	fill: #1D3557;
+}
