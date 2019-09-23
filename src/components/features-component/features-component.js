@@ -48,13 +48,16 @@ function Features() {
 		})
 	};
 
-	if (featureSettings.redirect === true && featureSettings.redirect) {
-      return (
-      	<Redirect push to={{
-		    pathname: /home/ + featureSettings.path
-		}} />
-      )
-    }
+	const redirect = () => {
+		if (featureSettings.redirect === true && featureSettings.redirect) {
+	      return (
+	      	<Redirect push to={{
+			    pathname: /home/ + featureSettings.path
+			}} />
+	      )
+	    }
+
+	}
 
 	const featureRows = features.map((featureRow, idx1) => {
 		const features = featureRow.map((feature, innerIdx) => {
@@ -84,13 +87,13 @@ function Features() {
   	return (
 	    <div className="features">
 	        <h2>
-				Features
+				Features and games
 	        </h2>
 
 	        <div>
 	        	{featureRows}
 		    </div>
-
+		    {redirect()}
 	    </div>
 	  );
 }

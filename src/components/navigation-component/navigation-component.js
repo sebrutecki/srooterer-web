@@ -45,7 +45,7 @@ function Nav() {
                 <TransitionGroup>
                     <CSSTransition 
                         key={location.key} 
-                        timeout={500} 
+                        timeout={700} 
                         classNames="fade"
                     >
                         <Switch location={location}>
