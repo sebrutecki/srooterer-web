@@ -1,3 +1,55 @@
 .tick-tack-toe{
 
 }
+
+.tick-tack-toe .game{
+	width: 380px;
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.tick-tack-toe .game .game-field{
+	float: left;
+	width: 33.333%;
+	height: 33.333%;
+	position:relative;
+	border: 1px solid #000;
+	font-size: 88px;
+	cursor: pointer;
+	user-select: none;
+	box-sizing: border-box;
+}
+
+.tick-tack-toe .game .game-field.disabled{
+	cursor: not-allowed;
+}
+
+.tick-tack-toe .game .game-field.field-green{
+	background: green;
+	color: #F1FAEE;
+}
+
+.tick-tack-toe .game .game-replay {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255, 0.5);
+	z-index: 20;
+	user-select: none;
+}
+
+.tick-tack-toe .game .game-replay span{
+	position: absolute;
+	left: 50%;
+	top:48%;
+	transform: translate(-50%,-50%);
+	font-size: 36px;
+	color: #E63946;
+	font-weight: bold;
+	text-shadow: 1px 1px #000;
+	cursor: pointer;
+}

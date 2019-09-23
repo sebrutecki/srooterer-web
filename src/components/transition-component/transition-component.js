@@ -15,7 +15,7 @@ function Transition(props) {
 	  }
 	}
 
-	class ShapeOverlays {
+	class TransitionEffect {
 	  constructor(elm) {
 	    this.elm = elm;
 	    this.path = elm.querySelectorAll('path');
@@ -55,17 +55,17 @@ function Transition(props) {
 	    const points = [];
 	    for (var i = 0; i < this.numPoints; i++) {
 	      const thisEase = this.isOpened ? 
-	                        (i == 1) ? ease.cubicOut : ease.cubicInOut:
-	                        (i == 1) ? ease.cubicInOut : ease.cubicOut;
+	                        (i === 1) ? ease.cubicOut : ease.cubicInOut:
+	                        (i === 1) ? ease.cubicInOut : ease.cubicOut;
 	      points[i] = thisEase(Math.min(Math.max(time - this.delayPointsArray[i], 0) / this.duration, 1)) * 100
 	    }
 
 	    let str = '';
 	    str += (this.isOpened) ? `M 0 0 V ${points[0]} ` : `M 0 ${points[0]} `;
-	    for (var i = 0; i < this.numPoints - 1; i++) {
-	      const p = (i + 1) / (this.numPoints - 1) * 100;
+	    for (var j = 0; j < this.numPoints - 1; j++) {
+	      const p = (j + 1) / (this.numPoints - 1) * 100;
 	      const cp = p - (1 / (this.numPoints - 1) * 100) / 2;
-	      str += `C ${cp} ${points[i]} ${cp} ${points[i + 1]} ${p} ${points[i + 1]} `;
+	      str += `C ${cp} ${points[j]} ${cp} ${points[j + 1]} ${p} ${points[j + 1]} `;
 	    }
 	    str += (this.isOpened) ? `V 0 H 0` : `V 100 H 0`;
 	    return str;
@@ -76,8 +76,8 @@ function Transition(props) {
 	        this.path[i].setAttribute('d', this.updatePath(Date.now() - (this.timeStart + this.delayPerPath * i)));
 	      }
 	    } else {
-	      for (var i = 0; i < this.path.length; i++) {
-	        this.path[i].setAttribute('d', this.updatePath(Date.now() - (this.timeStart + this.delayPerPath * (this.path.length - i - 1))));
+	      for (var j = 0; j < this.path.length; j++) {
+	        this.path[j].setAttribute('d', this.updatePath(Date.now() - (this.timeStart + this.delayPerPath * (this.path.length - j - 1))));
 	      }
 	    }
 	  }
@@ -96,7 +96,7 @@ function Transition(props) {
 
 	useEffect(() => {
 		const elmOverlay = document.querySelector('.shape-overlays');
-		const overlay = new ShapeOverlays(elmOverlay);
+		const overlay = new TransitionEffect(elmOverlay);
 
 		if (overlay.isAnimating) {
 	      return false;

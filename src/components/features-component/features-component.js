@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './features-component.css';
 
+import Icon from '@material-ui/core/Icon'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
@@ -18,16 +19,19 @@ function Features() {
 			{
 				"slug": "tick-tack-toe",
 				"label": "Tick Tack Toe",
+				"icon": "border_inner_icon",
 				"active": 'no',
 			},
 			{
 				"slug": "wheel-of-fortune",
 				"label": "Wheel of Fortune",
+				"icon": "settings_backup_restore_icon",
 				"active": 'no',
 			},
 			{
 				"slug": "simple-xlsx-creator",
 				"label": "Simple XLSX Creator",
+				"icon": "assignment_icon",
 				"active": 'no',
 			}
 		]
@@ -58,11 +62,13 @@ function Features() {
 				<Grid item 
 					xs={12} 
 					sm={4} 
+					lg={3} 
 					className={feature.active === 'yes' ? 'active' : '' } 
 					onClick={chooseFeature(idx1, innerIdx)} key={feature.slug} 
 				>
 		          	<Paper className="card">
 		          		<span>{feature.label}</span>
+		          		<Icon className="icon">{feature.icon}</Icon>
 		          	</Paper>
 		        </Grid>
 			)
@@ -77,9 +83,8 @@ function Features() {
 
   	return (
 	    <div className="features">
-	    
 	        <h2>
-				Features:
+				Features
 	        </h2>
 
 	        <div>

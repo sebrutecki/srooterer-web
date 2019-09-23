@@ -5,16 +5,22 @@
 	box-sizing: border-box;
 }
 
-.features h2, h3, h4 {
-	color: #457B9D;
-	text-align: left;
-}
-
 .features .card{
 	text-align: center;
 	color: #F1FAEE;
 	background-color: #E63946;
 	cursor: pointer;
-	padding: 10px;
+	padding: 20px;
 	min-height: 80px;
+	min-height: 170px;
+}
+
+.features .MuiGrid-item {
+	margin: 0px;
+}
+
+.features .card span.icon{
+	font-size: 80px;
+    display: block;
+    margin: 30px auto 0 auto;
 }
